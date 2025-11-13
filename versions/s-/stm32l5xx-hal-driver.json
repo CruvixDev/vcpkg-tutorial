@@ -1,0 +1,9 @@
+{
+   "versions": [
+      {
+         "path": "$/ports/stm32l5xx-hal-driver",
+         "version": "1.0.6",
+         "port-version": 0
+      }
+   ]
+}

@@ -1,0 +1,8 @@
+{
+   "name": "cmsis",
+   "version": "6.2.0",
+   "description": "ARM CMSIS (Cortex Microcontroller Software Interface Standard) is a vendor-independent hardware abstraction layer for the Cortex-M processor series and defines generic tool interfaces.",
+   "homepage": "https://www.arm.com/technologies/cmsis",
+   "license": "BSD-3-Clause",
+   "dependencies": []
+}

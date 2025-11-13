@@ -1,0 +1,9 @@
+{
+   "versions": [
+      {
+         "path": "$/ports/cmsis",
+         "version": "6.2.0",
+         "port-version": 0
+      }
+   ]
+}

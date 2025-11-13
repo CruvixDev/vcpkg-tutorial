@@ -1,0 +1,16 @@
+{
+   "version": 8,
+   "configurePresets": [
+      {
+         "name": "vcpkg-toolchain",
+         "displayName": "vcpkg-toolchain",
+         "description": "Use vcpkg toolchain file for dependency management",
+         "generator": "Ninja",
+         "binaryDir": "${sourceDir}/build",
+         "cacheVariables": {
+            "CMAKE_BUILD_TYPE": "Debug",
+            "CMAKE_TOOLCHAIN_FILE": "C:/Users/Julien/vcpkg/scripts/buildsystems/vcpkg.cmake"
+         }
+      }
+   ]
+}

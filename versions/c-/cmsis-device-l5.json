@@ -1,0 +1,9 @@
+{
+   "versions": [
+      {
+         "path": "$/ports/cmsis-device-l5",
+         "version": "1.0.6",
+         "port-version": 0
+      }
+   ]
+}
