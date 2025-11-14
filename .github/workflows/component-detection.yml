@@ -1,0 +1,32 @@
+name: Component Detection (vcpkg)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+
+permissions:
+  id-token: write
+  contents: write
+
+env:
+  VCPKG_FEATURE_FLAGS: dependencygraph
+
+jobs:
+  dependency-submission:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Bootstrap vcpkg
+        run: ./submodules/vcpkg/bootstrap-vcpkg.sh
+
+      - name: Install dependencies via vcpkg
+        run: ./submodules/vcpkg/vcpkg install
+
+      - name: Component detection dependency submission
+        uses: advanced-security/component-detection-dependency-submission-action@v0.1.0
