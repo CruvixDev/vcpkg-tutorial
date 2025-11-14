@@ -2,7 +2,7 @@ name: Populate dependencies
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   workflow_dispatch:
 
 permissions:
