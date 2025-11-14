@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "master" ]
 
+permissions:
+  id-token: write
+  contents: write
+
 jobs:
   dependencies-scan:
     runs-on: ubuntu-latest
