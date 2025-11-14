@@ -26,6 +26,6 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=./submodules/vcpkg/scripts/buildsystems/vcpkg.cmake -S . -B ./build -G Ninja
+          cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=./submodules/vcpkg/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x64-linux -S . -B ./build -G Ninja
       - name: Component detection dependency submission
         uses: advanced-security/component-detection-dependency-submission-action@v0.1.0
