@@ -1,0 +1,14 @@
+name: dependencies-scan
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  dependencies-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Component Detection dependency submission action
+        uses: advanced-security/component-detection-dependency-submission-action@v0.1.0
