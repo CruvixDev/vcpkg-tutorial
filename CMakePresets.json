@@ -9,9 +9,7 @@
          "binaryDir": "${sourceDir}/build",
          "cacheVariables": {
             "CMAKE_BUILD_TYPE": "Debug",
-            "VCPKG_TARGET_TRIPLET": "x64-windows",
-            "CMAKE_MAKE_PROGRAM": "C:/ST/STM32CubeCLT_1.16.0/Ninja/bin/ninja.exe",
-            "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+            "CMAKE_TOOLCHAIN_FILE": "./submodules/vcpkg/scripts/buildsystems/vcpkg.cmake"
          }
       }
    ]
