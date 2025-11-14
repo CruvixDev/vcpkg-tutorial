@@ -10,5 +10,8 @@ jobs:
   dependencies-scan:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
       - name: Component Detection dependency submission action
         uses: advanced-security/component-detection-dependency-submission-action@v0.1.0
