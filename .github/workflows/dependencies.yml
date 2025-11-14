@@ -22,7 +22,7 @@ jobs:
         submodules: 'recursive'
 
     - name: Bootstrap vcpkg
-      run: ${{ github.workspace }}/vcpkg/bootstrap-vcpkg.sh
+      run: ${{ github.workspace }}/submodules/vcpkg/bootstrap-vcpkg.sh
 
     - name: Run vcpkg
-      run: ${{ github.workspace }}/vcpkg/vcpkg install --dry-run
+      run: ${{ github.workspace }}/submodules/vcpkg/vcpkg install --dry-run
