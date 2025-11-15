@@ -32,3 +32,4 @@ jobs:
         uses: advanced-security/component-detection-dependency-submission-action@v0.1.0
         with:
           directoryExclusionList: ${{ env.EXCLUDE_DIR }}
+          token: ${{ secrets.GH_TOKEN }}
