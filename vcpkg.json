@@ -1,5 +1,7 @@
 {
   "dependencies": [
-    "cmsis"
+    "cmsis",
+    "cmsis-device-l5",
+    "stm32l5xx-hal-driver"
   ]
 }
