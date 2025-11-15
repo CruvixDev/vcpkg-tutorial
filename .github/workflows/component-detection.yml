@@ -32,6 +32,6 @@ jobs:
         run: echo "EXCLUDE_DIR=$(pwd)/submodules" >> $GITHUB_ENV
 
       - name: Component detection dependency submission
-        uses: advanced-security/component-detection-dependency-submission-action@v0.0.7
+        uses: advanced-security/component-detection-dependency-submission-action@v0.1.0
         with:
           directoryExclusionList: ${{ env.EXCLUDE_DIR }}
