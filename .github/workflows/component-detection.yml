@@ -24,7 +24,7 @@ jobs:
           submodules: 'recursive'  
 
       - name: Bootstrap vcpkg
-        run: ${{ github.workspace }}/submodules/vcpkg/bootstrap-vcpkg.sh
+        run: ./submodules/vcpkg/bootstrap-vcpkg.sh
 
       - name: Configure with CMake
         run: |
