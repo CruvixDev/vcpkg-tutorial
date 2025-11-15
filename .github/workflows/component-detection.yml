@@ -1,6 +1,8 @@
 name: Component Detection with CMake and vcpkg
 
 on:
+  push:
+    branches: [ master ]
   workflow_dispatch:
 
 permissions:
