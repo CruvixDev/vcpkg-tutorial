@@ -9,9 +9,6 @@ permissions:
   id-token: write
   contents: write
 
-env:
-  VCPKG_FEATURE_FLAGS: dependencygraph
-
 jobs:
   dependency-submission:
     runs-on: ubuntu-latest
