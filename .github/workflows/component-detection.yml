@@ -29,6 +29,3 @@ jobs:
       - name: Configure with CMake
         run: |
           cmake -DCMAKE_BUILD_TYPE=Debug -DVCPKG_OVERLAY_TRIPLETS=./cmake -DVCPKG_TARGET_TRIPLET=gcc-arm-none-eabi-triplet -DCMAKE_TOOLCHAIN_FILE=./submodules/vcpkg/scripts/buildsystems/vcpkg.cmake -S . -B ./build -G Ninja
-
-      - name: Build with CMake
-        run: cmake --build build
