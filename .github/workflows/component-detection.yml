@@ -1,31 +1,37 @@
-name: Component Detection with CMake and vcpkg
+name: Component Detection (vcpkg)
 
 on:
+  workflow_dispatch:
   push:
     branches: [ master ]
-  workflow_dispatch:
 
 permissions:
+  id-token: write
   contents: write
 
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   VCPKG_FEATURE_FLAGS: dependencygraph
 
 jobs:
-  cmake:
+  dependency-submission:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/cruvixdev/stm32-ci:latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
-          submodules: 'recursive'  
+          submodules: recursive
 
-      - name: Bootstrap vcpkg
-        run: ./submodules/vcpkg/bootstrap-vcpkg.sh
-
-      - name: Configure with CMake
+      - name: Configure CMake
         run: |
           cmake -DCMAKE_BUILD_TYPE=Debug -DVCPKG_OVERLAY_TRIPLETS=./cmake -DVCPKG_TARGET_TRIPLET=gcc-arm-none-eabi-triplet -DCMAKE_TOOLCHAIN_FILE=./submodules/vcpkg/scripts/buildsystems/vcpkg.cmake -S . -B ./build -G Ninja
+      
+      - name: Compute absolute path for exclusions
+        run: echo "EXCLUDE_DIR=$(pwd)/submodules" >> $GITHUB_ENV
+
+      - name: Component detection dependency submission
+        uses: advanced-security/component-detection-dependency-submission-action@v0.1.0
+        with:
+          directoryExclusionList: ${{ env.EXCLUDE_DIR }}
