@@ -1,35 +1,33 @@
-name: Component Detection (vcpkg)
+name: C/C++ CI
 
 on:
-  workflow_dispatch:
   push:
     branches: [ master ]
+  workflow_dispatch:
 
 permissions:
-  id-token: write
   contents: write
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  VCPKG_FEATURE_FLAGS: dependencygraph
+
 jobs:
-  dependency-submission:
-    runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/cruvixdev/stm32-ci:latest
+  build:
+
+    runs-on: windows-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
+    - uses: actions/checkout@v4
+      with:
+        submodules: 'recursive'
 
-      - name: Configure CMake
-        run: |
-          cmake -DCMAKE_BUILD_TYPE=Debug -DVCPKG_OVERLAY_TRIPLETS=./cmake -DVCPKG_TARGET_TRIPLET=gcc-arm-none-eabi-triplet -DCMAKE_TOOLCHAIN_FILE=./submodules/vcpkg/scripts/buildsystems/vcpkg.cmake -S . -B ./build -G Ninja
-      
-      - name: Compute absolute path for exclusions
-        run: echo "EXCLUDE_DIR=$(pwd)/submodules" >> $GITHUB_ENV
+    - name: bootstrap vcpkg
+      run: ${{ github.workspace }}/submodules/vcpkg//bootstrap-vcpkg.bat
+        
 
-      - name: Component detection dependency submission
-        uses: advanced-security/component-detection-dependency-submission-action@v0.1.0
-        with:
-          directoryExclusionList: ${{ env.EXCLUDE_DIR }}
-          token: ${{ secrets.GH_TOKEN }}
+    # This will execute a dry-run, meaning that libraries will not be built and
+    # installed, but they will still be reported to the GitHub dependency graph.
+    # This step assumes `vcpkg` has been bootstrapped (run `./vcpkg/bootstrap-vcpkg`)
+    - name: Run vcpkg
+      run: ${{ github.workspace }}/submodules/vcpkg/vcpkg install --dry-run --debug
