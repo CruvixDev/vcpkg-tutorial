@@ -11,6 +11,7 @@ permissions:
 env:
   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
   VCPKG_FEATURE_FLAGS: dependencygraph
+  GITHUB_SERVER_URL: ${{ github.server_url }}
 
 jobs:
   build:
