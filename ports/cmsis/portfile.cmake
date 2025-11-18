@@ -6,4 +6,4 @@ vcpkg_from_github(
     HEAD_REF main
 )
 
-vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE")
+# vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE")
