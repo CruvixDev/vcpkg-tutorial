@@ -9,7 +9,6 @@
          "binaryDir": "${sourceDir}/build",
          "cacheVariables": {
             "CMAKE_BUILD_TYPE": "Debug",
-            "CMAKE_PREFIX_PATH": "${sourceDir}/ports",
             "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/submodules/vcpkg/scripts/buildsystems/vcpkg.cmake",
             "VCPKG_OVERLAY_TRIPLETS": "${sourceDir}/cmake",
             "VCPKG_TARGET_TRIPLET": "gcc-arm-none-eabi-triplet"
