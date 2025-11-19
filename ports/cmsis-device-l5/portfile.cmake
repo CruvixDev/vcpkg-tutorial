@@ -8,4 +8,11 @@ vcpkg_from_github(
 
 vcpkg_install_copyright(FILE_LIST ${SOURCE_PATH}/LICENSE.md)
 
-file(INSTALL ${CMAKE_CURRENT_LIST_DIR}/cmsis-device-l5Config.cmake DESTINATION ${CURRENT_PACKAGES_DIR}/share/${PORT})
+file(INSTALL ${CMAKE_CURRENT_LIST_DIR}/cmsis-device-l5Config.cmake 
+    DESTINATION ${CURRENT_PACKAGES_DIR}/share/${PORT}
+)
+
+file(INSTALL ${SOURCE_PATH}/Include
+    DESTINATION ${CURRENT_PACKAGES_DIR}/include/cmsis-device-l5
+    FILES_MATCHING PATTERN "*.h"
+)

@@ -8,4 +8,11 @@ vcpkg_from_github(
 
 vcpkg_install_copyright(FILE_LIST ${SOURCE_PATH}/LICENSE)
 
-file(INSTALL ${CMAKE_CURRENT_LIST_DIR}/cmsisConfig.cmake DESTINATION ${CURRENT_PACKAGES_DIR}/share/${PORT})
+file(INSTALL ${CMAKE_CURRENT_LIST_DIR}/cmsisConfig.cmake 
+    DESTINATION ${CURRENT_PACKAGES_DIR}/share/${PORT}
+)
+
+file(INSTALL ${SOURCE_PATH}/CMSIS/Core/Include
+    DESTINATION ${CURRENT_PACKAGES_DIR}/include/cmsis
+    FILES_MATCHING PATTERN "*.h"
+)
