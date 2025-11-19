@@ -9,4 +9,4 @@ find_package(cmsis CONFIG REQUIRED)
 find_package(cmsis-device-l5 CONFIG REQUIRED)
 find_package(stm32l5xx-hal-driver CONFIG REQUIRED)
 
-add_executable(vcpkg_tutorial ${CMAKE_CURRENT_SOURCE_DIR}/src/main.c)
+add_executable(vcpkg_tutorial ${CMAKE_CURRENT_SOURCE_DIR}/src/main.c ${CMAKE_CURRENT_SOURCE_DIR}/src/system_syscall.c)
