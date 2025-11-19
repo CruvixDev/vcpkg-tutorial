@@ -6,4 +6,6 @@ vcpkg_from_github(
     HEAD_REF master
 )
 
-# vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE")
+vcpkg_install_copyright(FILE_LIST ${SOURCE_PATH}/LICENSE.md)
+
+file(INSTALL ${CMAKE_CURRENT_LIST_DIR}/cmsis-device-l5Config.cmake DESTINATION ${CURRENT_PACKAGES_DIR}/share/${PORT})
