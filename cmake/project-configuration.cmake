@@ -28,6 +28,7 @@ set(sources_SRCS ${sources_SRCS}
 # Include directories
 set(include_c_DIRS ${include_c_DIRS}
 	${CMAKE_CURRENT_SOURCE_DIR}/inc
+   ${CMAKE_CURRENT_SOURCE_DIR}/inc/hal
 )
 
 set(include_cxx_DIRS ${include_cxx_DIRS}
