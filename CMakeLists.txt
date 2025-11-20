@@ -38,8 +38,6 @@ find_package(cmsis CONFIG REQUIRED)
 find_package(cmsis-device-l5 CONFIG REQUIRED)
 find_package(stm32l5xx-hal-driver CONFIG REQUIRED)
 
-include(cmake/project-configuration.cmake)
-
 # CMake script to add project specific configuration
 # (sources, includes, symbols, linker script, options)
 include(cmake/project-configuration.cmake)
