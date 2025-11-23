@@ -59,9 +59,9 @@ set(link_DIRS ${link_DIRS}
 
 # Link libraries
 set(link_LIBS ${link_LIBS}
-   cmsis
-   cmsis-device-l5
-   stm32l5xx-hal-driver
+   cmsis::cmsis
+   cmsis-device-l5::cmsis-device-l5
+   stm32l5xx-hal-driver::stm32l5xx-hal-driver
 )
 
 # Compiler options

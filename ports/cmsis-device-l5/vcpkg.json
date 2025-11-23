@@ -4,5 +4,11 @@
    "description": "CMSIS Device Support for the L5 Series Cortex-M33 Devices.",
    "homepage": "https://github.com/STMicroelectronics/cmsis-device-l5",
    "license": "Apache-2.0",
-   "dependencies": []
+   "dependencies": [
+      "cmsis",
+      {
+         "name": "vcpkg-cmake",
+         "host": true
+      }
+   ]
 }

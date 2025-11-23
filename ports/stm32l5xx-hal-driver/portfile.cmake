@@ -8,12 +8,17 @@ vcpkg_from_github(
 
 vcpkg_install_copyright(FILE_LIST ${SOURCE_PATH}/LICENSE.md)
 
-file(INSTALL ${CMAKE_CURRENT_LIST_DIR}/stm32l5xx-hal-driverConfig.cmake 
-    DESTINATION ${CURRENT_PACKAGES_DIR}/share/${PORT}
+file(COPY ${CMAKE_CURRENT_LIST_DIR}/CMakeLists.txt DESTINATION ${SOURCE_PATH})
+file(COPY ${CMAKE_CURRENT_LIST_DIR}/stm32l5xx-hal-driverConfig.cmake.in DESTINATION ${SOURCE_PATH})
+
+vcpkg_cmake_configure(
+    SOURCE_PATH ${SOURCE_PATH}
+    OPTIONS
+        -DCMAKE_BUILD_TYPE=Debug
 )
 
-file(INSTALL ${SOURCE_PATH}/Inc/
-    DESTINATION ${CURRENT_PACKAGES_DIR}/include/stm32l5xx-hal-driver
-    FILES_MATCHING PATTERN "*.h"
-    PATTERN "*/" EXCLUDE
+vcpkg_cmake_build(
+    TARGET stm32l5xx-hal-driver
 )
+
+vcpkg_cmake_install()

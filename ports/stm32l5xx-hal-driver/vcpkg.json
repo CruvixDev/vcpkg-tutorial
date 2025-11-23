@@ -4,5 +4,10 @@
    "description": "HAL driver for the STM32L5 series of microcontrollers.",
    "homepage": "https://github.com/STMicroelectronics/stm32l5xx-hal-driver",
    "license": "BSD-3-Clause",
-   "dependencies": []
+   "dependencies": [
+      {
+         "name": "vcpkg-cmake",
+         "host": true
+      }
+   ]
 }
