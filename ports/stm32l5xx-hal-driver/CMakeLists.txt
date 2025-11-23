@@ -37,6 +37,11 @@ install(
 )
 
 install(
+    DIRECTORY Inc/
+    DESTINATION include/stm32l5xx-hal-driver
+)
+
+install(
     EXPORT stm32l5xx-hal-driver-targets
     FILE stm32l5xx-hal-driver-targets.cmake
     NAMESPACE stm32l5xx-hal-driver::
