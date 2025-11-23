@@ -5,6 +5,8 @@
    "homepage": "https://github.com/STMicroelectronics/stm32l5xx-hal-driver",
    "license": "BSD-3-Clause",
    "dependencies": [
+      "cmsis",
+      "cmsis-device-l5",
       {
          "name": "vcpkg-cmake",
          "host": true

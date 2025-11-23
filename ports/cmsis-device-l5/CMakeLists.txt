@@ -41,7 +41,7 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
 target_include_directories(cmsis-device-l5 PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Include>
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Include/Templates>
-    $<INSTALL_INTERFACE:include>
+    $<INSTALL_INTERFACE:include/cmsis-device-l5>
 )
 
 include(CMakePackageConfigHelpers)
@@ -55,7 +55,11 @@ install(
     TARGETS cmsis-device-l5
     EXPORT cmsis-device-l5-targets
     OBJECTS DESTINATION lib
-    PUBLIC_HEADER DESTINATION include
+)
+
+install(
+    DIRECTORY Include/
+    DESTINATION include/cmsis-device-l5
 )
 
 install(
