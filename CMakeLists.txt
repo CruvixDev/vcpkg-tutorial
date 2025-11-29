@@ -65,8 +65,8 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
    ${STM32_MODEL}
 
    # Choose HAL or LL drivers by commenting/uncommenting the following lines
-   USE_HAL_DRIVER
-   USE_FULL_LL_DRIVER
+   # USE_HAL_DRIVER
+   # USE_FULL_LL_DRIVER
 
    $<$<COMPILE_LANGUAGE:C>: ${symbols_c_SYMB}>
    $<$<COMPILE_LANGUAGE:CXX>: ${symbols_cxx_SYMB}>

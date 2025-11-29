@@ -113,6 +113,16 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
    __ARM_ARCH_PROFILE='M'
 )
 
+target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
+    -mthumb
+
+    # Other parameters
+    # -mcpu, -mfloat, -mfloat-abi, ...
+    -mcpu=cortex-m33
+	-mfpu=fpv5-d16
+	-mfloat-abi=hard    
+)
+
 target_include_directories(stm32l5xx-hal-driver PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Inc>
     $<INSTALL_INTERFACE:include>

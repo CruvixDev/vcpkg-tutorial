@@ -8,6 +8,8 @@ vcpkg_from_github(
 
 vcpkg_install_copyright(FILE_LIST ${SOURCE_PATH}/LICENSE.md)
 
+file(RENAME ${SOURCE_PATH}/Inc/stm32l5xx_hal_conf_template.h ${SOURCE_PATH}/Inc/stm32l5xx_hal_conf.h)
+
 file(COPY ${CMAKE_CURRENT_LIST_DIR}/CMakeLists.txt DESTINATION ${SOURCE_PATH})
 file(COPY ${CMAKE_CURRENT_LIST_DIR}/stm32l5xx-hal-driverConfig.cmake.in DESTINATION ${SOURCE_PATH})
 
