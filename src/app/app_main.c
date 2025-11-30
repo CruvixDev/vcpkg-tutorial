@@ -13,8 +13,7 @@
 
 /* Used interfaces (dependencies includes) -----------------------------------*/
 #include "stm32l5xx-hal-driver/stm32l5xx_ll_utils.h"
-#include "stm32l5xx-hal-driver/stm32l5xx_hal.h"
-#include "stm32l5xx-hal-driver/stm32l5xx_hal_i2c.h"
+#include "stm32l5xx-hal-driver/stm32l5xx_ll_gpio.h"
 
 /* Associated interfaces -----------------------------------------------------*/
 #include "app/app_main.h"
@@ -34,6 +33,7 @@ int main(void)
 {
     while (true)
     {
+        LL_GPIO_TogglePin(GPIOC, LL_GPIO_PIN_7);
         LL_mDelay(1000);
     }
 }
