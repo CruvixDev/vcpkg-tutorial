@@ -13,6 +13,8 @@
 
 /* Used interfaces (dependencies includes) -----------------------------------*/
 #include "stm32l5xx-hal-driver/stm32l5xx_ll_utils.h"
+#include "stm32l5xx-hal-driver/stm32l5xx_hal.h"
+#include "stm32l5xx-hal-driver/stm32l5xx_hal_i2c.h"
 
 /* Associated interfaces -----------------------------------------------------*/
 #include "app/app_main.h"

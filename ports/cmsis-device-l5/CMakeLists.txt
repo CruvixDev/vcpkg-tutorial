@@ -5,8 +5,8 @@ find_package(cmsis REQUIRED)
 
 add_library(cmsis-device-l5 OBJECT
     # Generic system files
-    Source/Templates/system_stm32l5xx_ns.c
-    Source/Templates/system_stm32l5xx_s.c
+    # Source/Templates/system_stm32l5xx_ns.c
+    # Source/Templates/system_stm32l5xx_s.c
     Source/Templates/system_stm32l5xx.c
 
     # ARM specific startup files
@@ -36,6 +36,16 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
    # Enable the specific STM32 model in stm32xxxx.h
    ${STM32_MODEL}
    __ARM_ARCH_PROFILE='M'
+)
+
+target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
+    -mthumb
+
+    # Other parameters
+    # -mcpu, -mfloat, -mfloat-abi, ...
+    -mcpu=cortex-m33
+	-mfpu=fpv5-d16
+	-mfloat-abi=hard    
 )
 
 target_include_directories(cmsis-device-l5 PUBLIC
