@@ -4,7 +4,7 @@ project(stm32l5xx-hal-driver)
 find_package(cmsis CONFIG REQUIRED)
 find_package(cmsis-device-l5 CONFIG REQUIRED)
 
-add_library(stm32l5xx-hal-driver OBJECT
+add_library(stm32l5xx-hal-driver STATIC
     Src/stm32l5xx_hal.c
     Src/stm32l5xx_hal_adc.c
     Src/stm32l5xx_hal_adc_ex.c
@@ -110,10 +110,11 @@ set(STM32_MODEL "STM32L552xx")
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
    # Enable the specific STM32 model in stm32xxxx.h
    ${STM32_MODEL}
+   USE_FULL_LL_DRIVER
    __ARM_ARCH_PROFILE='M'
 )
 
-target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
+target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE 
     -mthumb
 
     # Other parameters

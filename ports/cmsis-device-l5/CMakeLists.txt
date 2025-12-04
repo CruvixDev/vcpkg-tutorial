@@ -3,7 +3,7 @@ project(cmsis-device-l5)
 
 find_package(cmsis REQUIRED)
 
-add_library(cmsis-device-l5 OBJECT
+add_library(cmsis-device-l5 STATIC
     # Generic system files
     # Source/Templates/system_stm32l5xx_ns.c
     # Source/Templates/system_stm32l5xx_s.c
